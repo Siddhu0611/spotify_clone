@@ -1,0 +1,252 @@
+/* ====== GLOBAL RESET ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #121212;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ====== NAVIGATION ====== */
+nav {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
+    padding: 12px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+nav ul li:hover {
+    color: #1db954;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+/* ====== MAIN CONTAINER ====== */
+.container {
+    display: flex;
+    padding: 20px;
+}
+
+/* ====== SONG LIST ====== */
+.songList {
+    flex: 1;
+}
+
+.songList h1 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.songItemContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* ====== SONG ITEM ====== */
+.songItem {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.songItem:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.songItem img {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    margin-right: 15px;
+    object-fit: cover;
+    background-color: #333;
+    flex-shrink: 0;
+}
+
+.songName {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.songlistplay {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timestamp {
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+.songItemPlay {
+    cursor: pointer;
+    color: #1db954;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.songItemPlay:hover {
+    color: #1ed760;
+    transform: scale(1.2);
+}
+
+/* ====== SONG BANNER ====== */
+.songBanner {
+    width: 300px;
+    height: 100%;
+    background: url("banner.jpg") center/cover no-repeat;
+    border-radius: 12px;
+    margin-left: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+/* ====== BOTTOM PLAYER (Upgraded Spotify Style) ====== */
+.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(24,24,24,0.9) 0%, rgba(18,18,18,0.95) 100%);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
+    z-index: 100;
+}
+
+/* Song info on the left */
+.songInfo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #fff;
+    flex: 1;
+}
+
+.songInfo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+/* Player controls in the center */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex: 1;
+    justify-content: center;
+}
+
+.icons i {
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.6rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.icons i:hover {
+    color: #1db954;
+    transform: scale(1.15);
+}
+
+#masterPlay {
+    font-size: 2.4rem; /* Bigger play button */
+}
+
+/* Progress bar below controls */
+#myProgressBar {
+    flex: 2;
+    max-width: 500px;
+    margin: 0 20px;
+    cursor: pointer;
+    height: 4px;
+    border-radius: 2px;
+    background: #404040;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Progress bar track styling */
+#myProgressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: #1db954;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#myProgressBar::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Time indicators (optional) */
+.timeDisplay {
+    font-size: 0.8rem;
+    color: #b3b3b3;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+    .bottom {
+        flex-direction: column;
+        padding: 10px;
+        height: auto;
+    }
+    .songInfo {
+        justify-content: center;
+    }
+    .icons {
+        gap: 18px;
+    }
+    #myProgressBar {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+}
+
